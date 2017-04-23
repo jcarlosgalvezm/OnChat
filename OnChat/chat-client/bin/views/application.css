@@ -1,0 +1,9 @@
+.list-cell {
+   -fx-background-color: null;
+   -fx-font-size: 14px;
+}
+
+.table-cell {  
+	-fx-alignment: center-right;   
+    
+}
