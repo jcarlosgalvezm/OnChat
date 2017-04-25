@@ -1,7 +1,7 @@
 ## OnChat
 OnChat és una aplicació desenvolupada amb fins acadèmics, per demostrar la utilitat dels sockets en un entorn de desenvolupament real.
 
-El projecte consisteix en implementar en JAVA una aplicació basada en sockets per poder jugar al Trivial-mIRC. L'aplicació consta d'una part servidor, que fa de màster i gestor de la partida, i tants clients com es vulguin afegir. Les preguntes s'agafen d'un fitxer de text pla, en format csv.
+El projecte consisteix en implementar en JAVA una aplicació basada en sockets per poder jugar al Trivial. L'aplicació consta d'una part servidor, que fa de màster i gestor de la partida, i tants clients com es vulguin afegir. Les preguntes s'agafen d'un fitxer de text pla, en format csv.
 
 Implementant les següents millores:
 * Categories a les preguntes. Es poden afegir tants fitxers com es desitgi.
