@@ -1,11 +1,6 @@
 package addons.bots.trivial;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.net.Socket;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,33 +18,25 @@ import model.TipusRequest;
  */
 
 public class Trivial extends Bot {
-
-	private ConcurrentLinkedDeque<Request> requestStack;
-	private Socket socket;
 	
-	public Trivial() {
-		
+	private ConcurrentLinkedDeque<Request> requestStack;
+	/*	private Socket socket;
+	private OutputStream os; 
+	private ObjectOutputStream output;
+	private InputStream is;
+	private ObjectInputStream input;
+	*/
+	public Trivial(String benvinguda) throws IOException, ClassNotFoundException {
+		super(benvinguda);
 		requestStack = new ConcurrentLinkedDeque<Request>();
 	
 	}
 
 	@Override
 	public void run() {
-		super.run();
 
 		try {
-			socket = new Socket("localhost", 9001);
-			OutputStream os = socket.getOutputStream();
-			ObjectOutputStream output = new ObjectOutputStream(os);
-			InputStream is = socket.getInputStream();
-			ObjectInputStream input = new ObjectInputStream(is);
-
-			if (ping(output, input, "@Trivial")) {
-				Logger.getLogger("BOT").log(Level.INFO, "pong!");
-			}
-			
-			Request request = new Request(TipusRequest.COMUNICACIO, TipusDestinatari.ALL, TipusRemitent.USUARI, "@Trivial", "Hola @Channel, escriviu !trivial.iniciar per començar el joc");
-			Request.enviar(request, output);
+			connect();
 			Game game = new Game(requestStack,output);
 			Thread th_game = new Thread(game);
 			th_game.start();

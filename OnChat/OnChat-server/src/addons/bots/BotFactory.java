@@ -1,5 +1,7 @@
 package addons.bots;
 
+import java.io.IOException;
+
 import addons.bots.trivial.Trivial;
 
 /**
@@ -11,14 +13,14 @@ public class BotFactory {
 	
 	private BotFactory(){}
 	
-	private static Bot getBot(String tipus){
+	private static Bot getBot(String tipus) throws IOException, ClassNotFoundException{
 		if(tipus.equals("trivial"))
-			return new Trivial();
+			return new Trivial("Hola @Channel, escriviu !trivial.iniciar per començar el joc");
 		else
 			return null;
 	}
 	
-	public static boolean launch(String tipus) {
+	public static boolean launch(String tipus) throws IOException, ClassNotFoundException {
 		Bot bot = getBot(tipus);
 		if (bot != null) {
 			Thread th_bot = new Thread(bot);

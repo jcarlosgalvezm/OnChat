@@ -141,12 +141,12 @@ public class Connexio implements Runnable {
 		difondreAtots(update);
 	}
 
-	private void parseMessageFromBot(Request rx, ObjectOutputStream output) throws IOException{
+	private void parseMessageFromBot(Request rx, ObjectOutputStream output) throws IOException, ClassNotFoundException{
 		if (rx.getTipusRequest() == TipusRequest.JOINBOT) {
 
 			String botName = "@" + Character.toUpperCase(rx.getMissatge().substring(1).charAt(0))
 					+ rx.getMissatge().substring(2);
-
+						
 			if (!connexions.containsKey(botName)) {
 				BotFactory.launch(rx.getMissatge().substring(1));
 				difondreAtots(Request.convertRequestToAll(rx));
