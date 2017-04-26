@@ -1,3 +1,5 @@
+Autors: Marina Nicolau i Juan Carlos Gálvez
+
 ## OnChat
 OnChat és una aplicació desenvolupada amb fins acadèmics, per demostrar la utilitat dels sockets en un entorn de desenvolupament real.
 
